@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hidden Message Encoder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Invisible Ink</h1>
+      <p>Hide and reveal encrypted messages inside ordinary images.</p>
+    </header>
+
+    <div class="mode-toggle-wrapper">
+      <input id="mode-toggle-control" class="mode-toggle-control" type="checkbox" aria-label="Switch to decrypt mode" />
+      <label class="btn-lock" for="mode-toggle-control">
+        <svg width="36" height="40" viewBox="0 0 36 40" aria-hidden="true">
+          <path
+            class="lockb"
+            d="M27 27C27 34.1797 21.1797 40 14 40C6.8203 40 1 34.1797 1 27C1 19.8203 6.8203 14 14 14C21.1797 14 27 19.8203 27 27ZM15.6298 26.5191C16.4544 25.9845 17 25.056 17 24C17 22.3431 15.6569 21 14 21C12.3431 21 11 22.3431 11 24C11 25.056 11.5456 25.9845 12.3702 26.5191L11 32H17L15.6298 26.5191Z"
+          ></path>
+          <path class="lock" d="M6 21V10C6 5.58172 9.58172 2 14 2V2C18.4183 2 22 5.58172 22 10V21"></path>
+          <path class="bling" d="M29 20L31 22"></path>
+          <path class="bling" d="M31.5 15H34.5"></path>
+          <path class="bling" d="M29 10L31 8"></path>
+        </svg>
+      </label>
+      <span id="mode-toggle-caption" class="mode-toggle-caption">Encrypt</span>
+    </div>
+
+    <main class="app-main mode-encrypt" id="mode-container">
+      <section class="card card-encrypt">
+        <h2>Embed Message</h2>
+        <form id="embed-form">
+          <label class="input-group">
+            <span>Cover Image</span>
+            <input type="file" id="cover-image-input" accept="image/*" required />
+          </label>
+          <div id="embed-preview-container" class="image-preview hidden">
+            <img id="embed-image-preview" alt="Selected cover preview" />
+          </div>
+          <label class="input-group">
+            <span>Secret Message</span>
+            <textarea id="secret-message-input" rows="4" placeholder="Type your message..." required></textarea>
+          </label>
+          <label class="input-group">
+            <span>Key Code (max 16 characters)</span>
+            <input type="text" id="keycode-input" maxlength="16" required />
+          </label>
+          <label class="input-group">
+            <span>Output File Name</span>
+            <input type="text" id="output-filename-input" value="hidden-message" placeholder="hidden-message" />
+          </label>
+          <label class="input-group">
+            <span>Output Format</span>
+            <select id="output-format-select">
+              <option value="image/png">PNG (.png)</option>
+              <option value="image/jpeg">JPEG (.jpg)</option>
+              <option value="image/webp">WebP (.webp)</option>
+            </select>
+          </label>
+          <button type="submit" class="primary-btn">Generate Hidden Image</button>
+        </form>
+        <canvas id="embed-canvas" class="hidden"></canvas>
+        <div id="embed-output" class="output hidden">
+          <p>Your encoded image is ready. Download and share it securely.</p>
+          <a id="download-link" class="primary-btn" download="hidden-message.png">Download Image</a>
+        </div>
+      </section>
+
+      <section class="card card-decrypt">
+        <h2>Reveal Message</h2>
+        <form id="reveal-form">
+          <label class="input-group">
+            <span>Hidden Image</span>
+            <input type="file" id="hidden-image-input" accept="image/*" required />
+          </label>
+          <div id="reveal-preview-container" class="image-preview hidden">
+            <img id="reveal-image-preview" alt="Selected hidden image preview" />
+          </div>
+          <label class="input-group">
+            <span>Key Code</span>
+            <input type="text" id="reveal-keycode-input" maxlength="16" required />
+          </label>
+          <button type="submit" class="primary-btn">Reveal Secret</button>
+        </form>
+        <canvas id="reveal-canvas" class="hidden"></canvas>
+        <div id="reveal-output" class="output hidden">
+          <p id="revealed-message"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <small>Keep your key code safe. Without it, the message remains undecipherable.</small>
+    </footer>
+
+    <script src="script.js" type="module"></script>
+  </body>
+</html>
+
