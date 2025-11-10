@@ -25,7 +25,7 @@
 - **Frontend:** HTML5, CSS, JavaScript
 - **APIs/Libraries:** Web Crypto API, Canvas API, File API, createImageBitmap, URL.createObjectURL
 
-## 🚀 Running Locally
+## Running Locally
 
 1. Clone or download the repo.
 2. Option A: double-click `index.html`. Modern browsers allow file:// usage.
