@@ -2,6 +2,8 @@
 
 '*Invisible Ink*' is a steganography web application that lets you hide fully encrypted notes inside everyday images. This is another one of my personal university projects that I am able to showcase. This application showcases practical crypto + front-end skills.
 
+**View Live at: https://andrewc107.github.io/Invisible-Ink/**
+
 ## Why I Built It
 - To develop a further understanding of encryption/decryption models (AES-256-GCM in this case)
 - Learn about image processing, specifically steganography
