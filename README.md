@@ -29,9 +29,12 @@
 
 ## Running Locally
 
+Option A:
+1. Access the URL provided at the top of the ReadMe.
+
+Option B:
 1. Clone or download the repo.
-2. Option A: double-click `index.html`. Modern browsers allow file:// usage.
-3. Option B: serve it (makes debugging nicer):
+2. Serve it:
    ```bash
    # Python 3
    cd "Invisible Ink"
